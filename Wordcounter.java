@@ -10,16 +10,16 @@ public class Wordcounter
     {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a text or provide a file path: ");
-        String userInput = sc.nextLine();
+        String input = sc.nextLine();
         String text;
-        if (userInput.endsWith(".txt")) 
+        if (input.endsWith(".txt")) 
         {
             try 
             {
-                File file = new File(userInput);
-                Scanner fileScanner = new Scanner(file);
-                text = fileScanner.useDelimiter("\\Z").next();
-                fileScanner.close();
+                File file = new File(input);
+                Scanner FileScanner = new Scanner(file);
+                text = FileScanner.useDelimiter("\\Z").next();
+                FileScanner.close();
             } 
             catch (FileNotFoundException e) 
             {
@@ -29,17 +29,17 @@ public class Wordcounter
         }
          else 
         {
-            text = userInput;
+            text = input;
         }
-        String[] words = text.split("[\\s\\p{Punct}]+");
-        int Count = 0;
-        for (String word : words) 
+        String[] txtwords = text.split("[\\s\\p{Punct}]+");
+        int Counter = 0;
+        for (String words : txtwords) 
         {
-            if (!word.isEmpty()) 
+            if (!words.isEmpty()) 
             {
-                Count++;
+                Counter++;
             }
         }
-        System.out.println("Total word count: " +Count);
+        System.out.println("Total word count: " +Counter);
     }
 }
